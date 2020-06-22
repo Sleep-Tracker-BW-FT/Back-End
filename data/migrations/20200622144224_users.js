@@ -9,9 +9,11 @@ exports.up = function(knex) {
     })
     .createTable('sleep', tbl => {
         tbl.increments();
-        tbl.timestamp("bedtime", { useTz: false }).notNullable();
-        tbl.timestamp("waketime", { useTz: false }).notNullable();
-        tbl.integer("mood").notNullable()
+        tbl.timestamp("sleep_start", { useTz: false }).notNullable();
+      tbl.integer("start_score").notNullable();
+      tbl.timestamp("sleep_end", { useTz: false }).notNullable();
+      tbl.integer("end_score").notNullable();
+      tbl.integer("overall_score").notNullable();
         tbl.integer("user_id")
         .notNullable()
         .references("id")
